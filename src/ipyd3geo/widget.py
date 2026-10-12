@@ -374,25 +374,25 @@ class VectorStyle:
         weight (float or callable): The stroke width.
         stroke_opacity (float or callable): The stroke opacity.
         fill_opacity (float or callable): The fill opacity.
-        radius (float or callable): Point radius in pixels (passed to
-            ``path.pointRadius()``). Defaults to d3's 4.5.
+        point_radius (float or callable): Point radius in pixels. Defaults to 4.5.
     """
 
-    def __init__(
+    def __init__(  # noqa: PLR0913
         self,
         stroke_color: str | Callable[[dict], str] = "#000000",
         fill_color: str | Callable[[dict], str] = "#ffffff",
         weight: float | Callable[[dict], float] = 3,
         stroke_opacity: float | Callable[[dict], float] = 1.0,
         fill_opacity: float | Callable[[dict], float] = 1.0,
-        radius: float | Callable[[dict], float] = 4.5,
+        *,
+        point_radius: float | Callable[[dict], float] = 4.5,
     ) -> None:
         self.stroke_color = stroke_color
         self.fill_color = fill_color
         self.weight = weight
         self.stroke_opacity = stroke_opacity
         self.fill_opacity = fill_opacity
-        self.radius = radius
+        self.point_radius = point_radius
 
     def resolve(self, properties: dict) -> dict:
         """Return the concrete style for one feature.
