@@ -377,8 +377,8 @@ class VectorStyle:
         point_radius (float or callable): Point radius in pixels. Defaults to 4.5.
     """
 
-# Bypassing Ruff checks for too many positional argument, and too many arguments.
-# makes sense here because many arguments are needed to configure layer styling 
+    # Bypassing Ruff checks for too many positional argument, and too many arguments.
+    # makes sense here because many arguments are needed to configure layer styling
     def __init__(  # noqa: PLR0913, PLR0917
         self,
         stroke_color: str | Callable[[dict], str] = "#000000",
